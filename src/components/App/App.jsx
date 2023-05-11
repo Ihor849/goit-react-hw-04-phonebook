@@ -94,26 +94,26 @@
 //     return contactsFilter;
 //   };
 
-//   onDelete = (id, name) => {
-//     Notiflix.Confirm.show(
-//       'Confirm',
-//       ` Do You want to delete a ${name}?`,
-//       'Yes',
-//       'No',
-//       () => {
-//         this.setState(prevState => ({
-//           contacts: prevState.contacts.filter(contact => contact.id !== id),
-//         }));
-//       },
-//       () => {},
-//       {
-//         titleColor: '#ce6214',
-//         titleFontSize: '20px',
-//         messageColor: '#1e1e1e',
-//         messageFontSize: '20px',
-//       }
-//     );
-//   };
+// onDelete = (id, name) => {
+//   Notiflix.Confirm.show(
+//     'Confirm',
+//     ` Do You want to delete a ${name}?`,
+//     'Yes',
+//     'No',
+//     () => {
+//       this.setState(prevState => ({
+//         contacts: prevState.contacts.filter(contact => contact.id !== id),
+//       }));
+//     },
+//     () => {},
+//     {
+//       titleColor: '#ce6214',
+//       titleFontSize: '20px',
+//       messageColor: '#1e1e1e',
+//       messageFontSize: '20px',
+//     }
+//   );
+// };
 
 //   render() {
 //     const { contacts, filter } = this.state;

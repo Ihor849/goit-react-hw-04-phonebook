@@ -20,9 +20,9 @@ export default function AppHook() {
 
   const addContact = ({ id, name, number }) => {
     const newContact = { id, name, number };
-    console.log(newContact);
+
     setContacts([...contacts]);
-    console.log(contacts);
+
     if (
       contacts.find(
         contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
@@ -45,7 +45,7 @@ export default function AppHook() {
     Notiflix.Notify.success(
       `${newContact.name} This subscriber is added to the phone book`
     );
-    console.log(contacts);
+
     return setContacts(prev => [newContact, ...prev]);
   };
 
@@ -58,8 +58,6 @@ export default function AppHook() {
     let contactsFilter = [];
 
     if (filter) {
-      console.log(filter);
-
       contactsFilter = contacts.filter(
         contact =>
           contact.name.includes(filter) ||
@@ -73,26 +71,25 @@ export default function AppHook() {
   };
 
   const onDelete = (id, name) => {
-    setContacts(
-      prev => prev.filter(contact => contact.id !== id)
-      // Notiflix.Confirm.show(
-      //   'Confirm',
-      //   ` Do You want to delete a ${name}?`,
-      //   'Yes',
-      //   'No',
-      //   () => {
-      // //    setContacts(prev => prev.filter(contact => contact.id !== id)
-      //   },
-      //   () => {},
-      //   {
-      //     titleColor: '#ce6214',
-      //     titleFontSize: '20px',
-      //     messageColor: '#1e1e1e',
-      //     messageFontSize: '20px',
-      //   }
+    Notiflix.Confirm.show(
+      'Confirm',
+      ` Do You want to delete a ${name}?`,
+      'Yes',
+      'No',
+      () => {
+        setContacts(prevState =>
+          prevState.filter(contact => contact.id !== id)
+        );
+      },
+      () => {},
+      {
+        titleColor: '#ce6214',
+        titleFontSize: '20px',
+        messageColor: '#1e1e1e',
+        messageFontSize: '20px',
+      }
     );
   };
-
   return (
     <>
       <Container>
