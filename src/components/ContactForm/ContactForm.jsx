@@ -1,4 +1,3 @@
-// import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import { Formik } from 'formik';
 import { nanoid } from 'nanoid';
